@@ -14,11 +14,9 @@ function Video({
           <img src="https://loremflickr.com/160/90" alt="LoremFlickr" />
         </div>
         <div className="title">{title}</div>
-        {verified ? (
-          <div className="channelName">{channelName} ✅</div>
-        ) : (
-          <div className="channelName">{channelName} </div>
-        )}
+        <div className="channelName">
+          {channelName} {verified && "✅"}
+        </div>
         <div>
           {views} views <span>.</span> {time}
         </div>
