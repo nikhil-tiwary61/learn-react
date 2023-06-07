@@ -1,0 +1,10 @@
+.container{
+    width: 200px;
+    float: left;
+}
+.picture{
+    width: inherit;
+}
+img {
+    width: 95%;
+}
