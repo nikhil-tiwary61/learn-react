@@ -1,3 +1,5 @@
+Personal repository to track and maintain various features and methods of React. Main objective of this repository is to experiment using React.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
