@@ -7,14 +7,6 @@ function Video({
   time = "few seconds ago",
   verified = false,
 }) {
-  // let verified = true;
-  let channelJSX;
-  if (verified) {
-    channelJSX = <div className="channelName">{channelName} ✅</div>;
-  } else {
-    channelJSX = <div className="channelName">{channelName} </div>;
-  }
-
   return (
     <>
       <div className="container">
@@ -22,7 +14,11 @@ function Video({
           <img src="https://loremflickr.com/160/90" alt="LoremFlickr" />
         </div>
         <div className="title">{title}</div>
-        {channelJSX}
+        {verified ? (
+          <div className="channelName">{channelName} ✅</div>
+        ) : (
+          <div className="channelName">{channelName} </div>
+        )}
         <div>
           {views} views <span>.</span> {time}
         </div>

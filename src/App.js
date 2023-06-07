@@ -17,7 +17,7 @@ function App() {
         channelName="CatsFoundation"
         views="2m"
         time="4 months ago"
-        verified="true"
+        verified={true}
       ></Video>
       <Video
         title="Adorable Kitty"
