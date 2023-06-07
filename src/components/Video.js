@@ -1,6 +1,7 @@
 import "./Video.css";
 
 function Video({
+  id,
   title = "No Title",
   channelName = "Private Channel",
   views = 0,
@@ -11,7 +12,10 @@ function Video({
     <>
       <div className="container">
         <div className="picture">
-          <img src="https://loremflickr.com/160/90" alt="LoremFlickr" />
+          <img
+            src={`https://picsum.photos/id/${id}/160/90`}
+            alt="LoremFlickr"
+          />
         </div>
         <div className="title">{title}</div>
         <div className="channelName">
