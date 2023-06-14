@@ -1,4 +1,5 @@
 import "./App.css";
+import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videos from "./data/data";
 
@@ -17,6 +18,8 @@ function App() {
           verified={video.verified}
         ></Video>
       ))}
+      <PlayButton name="Play" message="play"></PlayButton>
+      <PlayButton name="Pause" message="pause"></PlayButton>
     </div>
   );
 }
