@@ -1,9 +1,9 @@
 import "./PlayButton.css";
 
-export default function PlayButton({ name, message }) {
+export default function PlayButton({ children, message, onClick }) {
   function handleClick() {
-    console.log(message);
+    onClick();
   }
 
-  return <button onClick={handleClick}>{name}</button>;
+  return <button onClick={handleClick}>{children}</button>;
 }

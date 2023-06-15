@@ -18,8 +18,14 @@ function App() {
           verified={video.verified}
         ></Video>
       ))}
-      <PlayButton name="Play" message="play"></PlayButton>
-      <PlayButton name="Pause" message="pause"></PlayButton>
+      <div>
+        <PlayButton message="play" onClick={() => console.log("playing")}>
+          Play
+        </PlayButton>
+        <PlayButton message="pause" onClick={() => alert("Paused")}>
+          Pause
+        </PlayButton>
+      </div>
     </div>
   );
 }
