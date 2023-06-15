@@ -1,4 +1,5 @@
 import "./App.css";
+import Assignment1 from "./components/Chapter4Assignment1";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videos from "./data/data";
@@ -25,18 +26,7 @@ function App() {
           </PlayButton>
         </Video>
       ))}
-      <div>
-        {/* <PlayButton
-          message="play"
-          onPlay={() => console.log("Playing")}
-          onPause={() => console.log("Paused")}
-        >
-          Play
-        </PlayButton> */}
-        {/* <PlayButton message="pause" onClick={() => alert("Paused")}>
-           Pause
-         </PlayButton> */}
-      </div>
+      <Assignment1></Assignment1>
     </div>
   );
 }

@@ -10,6 +10,8 @@ export default function PlayButton({
   let playing = false; //Not to use this approach
   function handleClick(e) {
     e.stopPropagation();
+    //Mostly used in Forms on submit buttons to prevent its default behaviour on other parts of form.
+    // e.preventDefault();
     playing ? onPause() : onPlay();
     playing = !playing;
   }

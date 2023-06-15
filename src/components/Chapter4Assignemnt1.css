@@ -1,0 +1,8 @@
+div{
+    /* width: 50px; */
+    float: left;
+}
+.image{
+    width: inherit;
+    height: 20px;
+}
