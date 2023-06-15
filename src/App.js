@@ -19,12 +19,16 @@ function App() {
         ></Video>
       ))}
       <div>
-        <PlayButton message="play" onClick={() => console.log("playing")}>
+        <PlayButton
+          message="play"
+          onPlay={() => console.log("Playing")}
+          onPause={() => console.log("Paused")}
+        >
           Play
         </PlayButton>
-        <PlayButton message="pause" onClick={() => alert("Paused")}>
-          Pause
-        </PlayButton>
+        {/* <PlayButton message="pause" onClick={() => alert("Paused")}>
+           Pause
+         </PlayButton> */}
       </div>
     </div>
   );
