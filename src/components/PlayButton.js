@@ -7,11 +7,15 @@ export default function PlayButton({
   onPlay,
   onPause,
 }) {
-  let playing = false;
+  let playing = false; //Not to use this approach
   function handleClick() {
     playing ? onPause() : onPlay();
     playing = !playing;
   }
 
-  return <button onClick={handleClick}>{children}</button>;
+  return (
+    <button onClick={handleClick}>
+      {children} : {playing ? "||" : ">"}
+    </button>
+  );
 }

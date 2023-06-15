@@ -7,6 +7,7 @@ function Video({
   views = 0,
   time = "few seconds ago",
   verified = false,
+  children,
 }) {
   return (
     <>
@@ -24,6 +25,7 @@ function Video({
         <div>
           {views} views <span>.</span> {time}
         </div>
+        <div>{children}</div>
       </div>
     </>
   );

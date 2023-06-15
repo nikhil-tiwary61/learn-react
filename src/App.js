@@ -16,16 +16,23 @@ function App() {
           views={video.views}
           time={video.time}
           verified={video.verified}
-        ></Video>
+        >
+          <PlayButton
+            onPlay={() => console.log("Playing", video.title)}
+            onPause={() => console.log("Paused", video.title)}
+          >
+            {video.title}
+          </PlayButton>
+        </Video>
       ))}
       <div>
-        <PlayButton
+        {/* <PlayButton
           message="play"
           onPlay={() => console.log("Playing")}
           onPause={() => console.log("Paused")}
         >
           Play
-        </PlayButton>
+        </PlayButton> */}
         {/* <PlayButton message="pause" onClick={() => alert("Paused")}>
            Pause
          </PlayButton> */}
