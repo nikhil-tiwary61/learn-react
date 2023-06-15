@@ -8,7 +8,8 @@ export default function PlayButton({
   onPause,
 }) {
   let playing = false; //Not to use this approach
-  function handleClick() {
+  function handleClick(e) {
+    e.stopPropagation();
     playing ? onPause() : onPlay();
     playing = !playing;
   }
