@@ -1,5 +1,6 @@
 import "./App.css";
-import Assignment1 from "./components/Chapter4Assignment1";
+import Assignment1 from "./components/Assignments/Chapter4Assignment1";
+import Form from "./components/Assignments/Chapter4Assignment2";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videos from "./data/data";
@@ -27,6 +28,7 @@ function App() {
         </Video>
       ))}
       <Assignment1></Assignment1>
+      <Form></Form>
     </div>
   );
 }
