@@ -1,6 +1,6 @@
 import "./App.css";
 import Assignment1 from "./components/Assignments/Chapter4Assignment1";
-import Form from "./components/Assignments/Chapter4Assignment2";
+import Form from "./components/Assignments/Chapter4Assignment2&3";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videos from "./data/data";
