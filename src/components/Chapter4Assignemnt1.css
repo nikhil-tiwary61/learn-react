@@ -1,7 +1,6 @@
 div{
     float: left;
 }
-.image{
-    width: inherit;
-    height: 20px;
+.image:hover{
+    transform: scale(1.5,1.5);
 }

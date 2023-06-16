@@ -26,6 +26,19 @@ export default function Assignment1({ onMouseOver }) {
     e.stopPropagation();
     console.log("Out of Textbox");
   }
+  function handleCut(e) {
+    e.stopPropagation();
+    alert("Selected element cut");
+  }
+  function handleCopy(e) {
+    e.stopPropagation();
+    alert("Copied");
+  }
+  function handlePaste(e) {
+    e.stopPropagation();
+    alert("Pasted");
+  }
+
   return (
     <>
       <img
@@ -39,7 +52,14 @@ export default function Assignment1({ onMouseOver }) {
       <button onClick={handleClick} onDoubleClick={handleDoubleClick}>
         Button
       </button>
-      <input type="text" onFocus={handleFocus} onBlur={handleBlur} />
+      <input
+        type="text"
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        onCut={handleCut}
+        onCopy={handleCopy}
+        onPaste={handlePaste}
+      />
     </>
   );
 }
