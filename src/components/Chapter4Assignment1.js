@@ -1,14 +1,13 @@
 export default function Assignment1({ onMouseOver }) {
-  let hover = false;
   function handleMouseOver(e) {
     e.stopPropagation();
-    console.log("Mouse Over");
-    hover = true;
+    e.target.style["transform"] = "scale(1.1,1.1)";
+    e.target.style["transition"] = ".5s";
   }
   function handleMouseOut(e) {
     e.stopPropagation();
-    console.log("Mouse Out");
-    hover = false;
+    e.target.style["transform"] = "scale(1,1)";
+    e.target.style["transition"] = ".5s";
   }
   function handleDoubleClick(e) {
     e.stopPropagation();
@@ -47,7 +46,6 @@ export default function Assignment1({ onMouseOver }) {
         className="image"
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
-        style={hover ? { transform: "scale(1.2)" } : { transform: "scale(1)" }}
       />
       <button onClick={handleClick} onDoubleClick={handleDoubleClick}>
         Button
