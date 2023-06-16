@@ -6,7 +6,7 @@ import videos from "./data/data";
 
 function App() {
   return (
-    <div className="app" onClick={() => console.log("App")}>
+    <div className="app">
       <div className="sectionTitle">Videos</div>
       {videos.map((video) => (
         <Video
