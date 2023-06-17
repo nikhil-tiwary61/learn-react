@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Counter from "./components/Counter";
 // import Assignment1 from "./components/Assignments/Chapter4Assignment1";
@@ -5,12 +6,31 @@ import Counter from "./components/Counter";
 // import Close from "./components/Assignments/Chapter4Assignment7";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
-import videos from "./data/data";
+import videoDB from "./data/data";
 
 function App() {
+  const [videos, setVideos] = useState(videoDB);
   return (
     <div className="app">
-      <div className="sectionTitle">Videos</div>
+      <div className="sectionTitle">
+        <button
+          onClick={() => {
+            setVideos([
+              ...videos,
+              {
+                id: videos.length + 1,
+                title: "Cute Cats",
+                channelName: "CatsFoundation",
+                views: "2m",
+                time: "4 months ago",
+                verified: true,
+              },
+            ]);
+          }}
+        >
+          Videos
+        </button>
+      </div>
       {videos.map((video) => (
         <Video
           key={video.id}
