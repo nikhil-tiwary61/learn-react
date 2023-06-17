@@ -1,7 +1,8 @@
 import "./App.css";
-import Assignment1 from "./components/Assignments/Chapter4Assignment1";
-import Form from "./components/Assignments/Chapter4Assignment2&3";
-import Close from "./components/Assignments/Chapter4Assignment7";
+import Counter from "./components/Counter";
+// import Assignment1 from "./components/Assignments/Chapter4Assignment1";
+// import Form from "./components/Assignments/Chapter4Assignment2&3";
+// import Close from "./components/Assignments/Chapter4Assignment7";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videos from "./data/data";
@@ -28,13 +29,14 @@ function App() {
           </PlayButton>
         </Video>
       ))}
-      <Assignment1></Assignment1>
-      <Form></Form>
+      {/* <Assignment1></Assignment1>
+      <Form></Form> */}
       {/* chapter4 assignemnt 5 */}
       {/* <PlayButton message="Playing" onPress={(message) => console.log(message)}>
         Assignment 5
       </PlayButton> */}
-      <Close>Close Tab</Close>
+      {/* <Close>Close Tab</Close> */}
+      <Counter></Counter>
     </div>
   );
 }

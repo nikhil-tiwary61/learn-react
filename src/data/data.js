@@ -22,9 +22,6 @@ let videos = [
     time: "4 year ago",
     verified: true,
   },
-  {
-    id: 4,
-  },
 ];
 
 export default videos;
