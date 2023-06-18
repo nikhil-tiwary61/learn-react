@@ -1,36 +1,22 @@
 import { useState } from "react";
 import "./App.css";
-import Counter from "./components/Counter";
+// import Counter from "./components/Counter";
 // import Assignment1 from "./components/Assignments/Chapter4Assignment1";
 // import Form from "./components/Assignments/Chapter4Assignment2&3";
 // import Close from "./components/Assignments/Chapter4Assignment7";
 import PlayButton from "./components/PlayButton";
 import Video from "./components/Video";
 import videoDB from "./data/data";
+import AddVideo from "./components/AddVideo";
 
 function App() {
   const [videos, setVideos] = useState(videoDB);
+  function addVideos(video) {
+    setVideos([...videos, { ...video, id: videos.length + 1 }]);
+  }
   return (
     <div className="app">
-      <div className="sectionTitle">
-        <button
-          onClick={() => {
-            setVideos([
-              ...videos,
-              {
-                id: videos.length + 1,
-                title: "Cute Cats",
-                channelName: "CatsFoundation",
-                views: "2m",
-                time: "4 months ago",
-                verified: true,
-              },
-            ]);
-          }}
-        >
-          Videos
-        </button>
-      </div>
+      <AddVideo addVideos={addVideos}></AddVideo>
       {videos.map((video) => (
         <Video
           key={video.id}
@@ -56,7 +42,7 @@ function App() {
         Assignment 5
       </PlayButton> */}
       {/* <Close>Close Tab</Close> */}
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
     </div>
   );
 }
