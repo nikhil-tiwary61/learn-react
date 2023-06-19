@@ -4,10 +4,9 @@ import "./App.css";
 // import Assignment1 from "./components/Assignments/Chapter4Assignment1";
 // import Form from "./components/Assignments/Chapter4Assignment2&3";
 // import Close from "./components/Assignments/Chapter4Assignment7";
-import PlayButton from "./components/PlayButton";
-import Video from "./components/Video";
 import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
+import VideoList from "./components/VideoList";
 
 function App() {
   const [videos, setVideos] = useState(videoDB);
@@ -17,24 +16,7 @@ function App() {
   return (
     <div className="app">
       <AddVideo addVideos={addVideos}></AddVideo>
-      {videos.map((video) => (
-        <Video
-          key={video.id}
-          id={video.id}
-          title={video.title}
-          channelName={video.channelName}
-          views={video.views}
-          time={video.time}
-          verified={video.verified}
-        >
-          <PlayButton
-            onPlay={() => console.log("Playing", video.title)}
-            onPause={() => console.log("Paused", video.title)}
-          >
-            {video.title}
-          </PlayButton>
-        </Video>
-      ))}
+      <VideoList videos={videos}></VideoList>
       {/* <Assignment1></Assignment1>
       <Form></Form> */}
       {/* chapter4 assignemnt 5 */}
