@@ -1,7 +1,7 @@
 import PlayButton from "./PlayButton";
 import Video from "./Video";
 
-export default function VideoList({ videos, deleteVideo }) {
+export default function VideoList({ videos, deleteVideo, editVideo }) {
   return (
     <>
       {videos.map((video) => (
@@ -14,6 +14,7 @@ export default function VideoList({ videos, deleteVideo }) {
           time={video.time}
           verified={video.verified}
           deleteVideo={deleteVideo}
+          editVideo={editVideo}
         >
           <PlayButton
             onPlay={() => console.log("Playing", video.title)}

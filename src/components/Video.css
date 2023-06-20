@@ -16,3 +16,7 @@ img {
     position: absolute;
     right: 0;
 }
+.edit-btn{
+    position: absolute;
+    right: 3em;
+}

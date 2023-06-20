@@ -9,12 +9,16 @@ function Video({
   verified = false,
   children,
   deleteVideo,
+  editVideo,
 }) {
   return (
     <>
       <div className="container">
         <button className="close-btn" onClick={() => deleteVideo(id)}>
           X
+        </button>
+        <button className="edit-btn" onClick={() => editVideo(id)}>
+          Edit
         </button>
         <div className="picture">
           <img

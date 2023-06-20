@@ -1,25 +1,36 @@
 import { useState } from "react";
 import "./App.css";
-// import Counter from "./components/Counter";
-// import Assignment1 from "./components/Assignments/Chapter4Assignment1";
-// import Form from "./components/Assignments/Chapter4Assignment2&3";
-// import Close from "./components/Assignments/Chapter4Assignment7";
 import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 function App() {
   const [videos, setVideos] = useState(videoDB);
+  const [editableVideo, setEditableVideo] = useState(null);
   function addVideos(video) {
     setVideos([...videos, { ...video, id: videos.length + 1 }]);
   }
   function deleteVideo(id) {
     setVideos(videos.filter((video) => video.id !== id));
   }
+  function editVideo(id) {
+    setEditableVideo(videos.find((video) => video.id === id));
+  }
+  function updateVideo(video) {
+    console.log(video);
+  }
   return (
     <div className="app">
-      <AddVideo addVideos={addVideos}></AddVideo>
-      <VideoList videos={videos} deleteVideo={deleteVideo}></VideoList>
+      <AddVideo
+        addVideos={addVideos}
+        editableVideo={editableVideo}
+        updateVideo={updateVideo}
+      />
+      <VideoList
+        videos={videos}
+        deleteVideo={deleteVideo}
+        editVideo={editVideo}
+      />
     </div>
   );
 }
