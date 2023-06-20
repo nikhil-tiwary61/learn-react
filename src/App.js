@@ -13,18 +13,13 @@ function App() {
   function addVideos(video) {
     setVideos([...videos, { ...video, id: videos.length + 1 }]);
   }
+  function deleteVideo(id) {
+    setVideos(videos.filter((video) => video.id !== id));
+  }
   return (
     <div className="app">
       <AddVideo addVideos={addVideos}></AddVideo>
-      <VideoList videos={videos}></VideoList>
-      {/* <Assignment1></Assignment1>
-      <Form></Form> */}
-      {/* chapter4 assignemnt 5 */}
-      {/* <PlayButton message="Playing" onPress={(message) => console.log(message)}>
-        Assignment 5
-      </PlayButton> */}
-      {/* <Close>Close Tab</Close> */}
-      {/* <Counter></Counter> */}
+      <VideoList videos={videos} deleteVideo={deleteVideo}></VideoList>
     </div>
   );
 }

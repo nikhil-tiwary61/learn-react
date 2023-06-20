@@ -1,11 +1,18 @@
 .container{
     width: 200px;
     float: left;
+    position: relative;
+    margin-left: 10px;
 }
 .picture{
     width: inherit;
 }
 img {
-    width: 180px;
-    height: 130px;
+    width: inherit;
+    height: inherit;
+}
+
+.close-btn{
+    position: absolute;
+    right: 0;
 }
