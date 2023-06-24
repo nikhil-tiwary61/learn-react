@@ -8,13 +8,16 @@ function Video({
   time = "few seconds ago",
   verified = false,
   children,
-  deleteVideo,
+  dispatch,
   editVideo,
 }) {
   return (
     <>
       <div className="container">
-        <button className="close-btn" onClick={() => deleteVideo(id)}>
+        <button
+          className="close-btn"
+          onClick={() => dispatch({ type: "DELETE", payload: id })}
+        >
           X
         </button>
         <button className="edit-btn" onClick={() => editVideo(id)}>

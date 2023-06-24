@@ -1,39 +1,36 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 function App() {
-  const [videos, setVideos] = useState(videoDB);
   const [editableVideo, setEditableVideo] = useState(null);
-  function addVideos(video) {
-    setVideos([...videos, { ...video, id: videos.length + 1 }]);
+  function videoReducer(videos, action) {
+    switch (action.type) {
+      case "ADD":
+        return [...videos, { ...action.payload, id: videos.length + 1 }];
+      case "DELETE":
+        return videos.filter((video) => video.id !== action.payload);
+      case "UPDATE":
+        const index = videos.findIndex((v) => v.id === action.payload.id);
+        const newVideo = [...videos];
+        newVideo.splice(index, 1, action.payload);
+        setEditableVideo(null);
+        return newVideo;
+      default:
+        return videos;
+    }
   }
-  function deleteVideo(id) {
-    setVideos(videos.filter((video) => video.id !== id));
-  }
+
+  const [videos, dispatch] = useReducer(videoReducer, videoDB);
   function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
   }
-  function updateVideo(video) {
-    const index = videos.findIndex((v) => v.id === video.id);
-    const newVideo = [...videos];
-    newVideo.splice(index, 1, video);
-    setVideos(newVideo);
-  }
   return (
     <div className="app">
-      <AddVideo
-        addVideos={addVideos}
-        editableVideo={editableVideo}
-        updateVideo={updateVideo}
-      />
-      <VideoList
-        videos={videos}
-        deleteVideo={deleteVideo}
-        editVideo={editVideo}
-      />
+      <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
+      <VideoList videos={videos} dispatch={dispatch} editVideo={editVideo} />
     </div>
   );
 }

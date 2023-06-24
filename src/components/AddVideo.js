@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./AddVideo.css";
 
-export default function AddVideo({ addVideos, editableVideo, updateVideo }) {
+export default function AddVideo({ dispatch, editableVideo, updateVideo }) {
   const emptyState = {
     channelName: "CatsFoundation",
     time: "4 months ago",
@@ -16,9 +16,9 @@ export default function AddVideo({ addVideos, editableVideo, updateVideo }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (editableVideo) {
-      updateVideo(video);
+      dispatch({ type: "UPDATE", payload: video });
     } else {
-      addVideos(video);
+      dispatch({ type: "ADD", payload: video });
     }
     setVideo(emptyState);
   }
