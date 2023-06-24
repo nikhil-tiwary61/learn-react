@@ -3,6 +3,7 @@ import "./App.css";
 import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
+import Clock from "./components/Assignments/Clock";
 
 function App() {
   const path = [];
@@ -43,6 +44,7 @@ function App() {
         editVideo={editVideo}
         path={path}
       />
+      <Clock />
     </div>
   );
 }
