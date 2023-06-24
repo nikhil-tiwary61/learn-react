@@ -5,6 +5,7 @@ import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 
 function App() {
+  const path = [];
   const [editableVideo, setEditableVideo] = useState(null);
   function videoReducer(videos, action) {
     switch (action.type) {
@@ -28,9 +29,20 @@ function App() {
     setEditableVideo(videos.find((video) => video.id === id));
   }
   return (
-    <div className="app">
+    <div
+      className="app"
+      onClick={() => {
+        path.push("app");
+        console.log(path.reverse().join(">"));
+      }}
+    >
       <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
-      <VideoList videos={videos} dispatch={dispatch} editVideo={editVideo} />
+      <VideoList
+        videos={videos}
+        dispatch={dispatch}
+        editVideo={editVideo}
+        path={path}
+      />
     </div>
   );
 }

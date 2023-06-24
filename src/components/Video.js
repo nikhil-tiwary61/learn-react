@@ -10,10 +10,11 @@ function Video({
   children,
   dispatch,
   editVideo,
+  path,
 }) {
   return (
     <>
-      <div className="container">
+      <div className="container" onClick={() => path.push("video")}>
         <button
           className="close-btn"
           onClick={() => dispatch({ type: "DELETE", payload: id })}
@@ -27,6 +28,7 @@ function Video({
           <img
             src={`https://picsum.photos/id/${id}/160/90`}
             alt="LoremFlickr"
+            onClick={() => path.push("image")}
           />
         </div>
         <div className="title">{title}</div>
