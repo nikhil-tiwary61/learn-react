@@ -1,9 +1,9 @@
-import { useReducer, useState } from "react";
+import { useReducer, useState, useContext } from "react";
 import "./App.css";
 import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
-import Clock from "./components/Assignments/Clock";
+import ThemeContext from "./context/ThemeContext";
 
 function App() {
   const path = [];
@@ -29,9 +29,12 @@ function App() {
   function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
   }
+
+  const theme = useContext(ThemeContext);
+
   return (
     <div
-      className="app"
+      className={`app ${theme}`}
       onClick={() => {
         path.push("app");
         console.log(path.reverse().join(">"));
@@ -44,7 +47,7 @@ function App() {
         editVideo={editVideo}
         path={path}
       />
-      <Clock />
+      {/* <Clock /> */}
     </div>
   );
 }

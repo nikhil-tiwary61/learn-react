@@ -20,3 +20,9 @@ img {
     position: absolute;
     right: 3em;
 }
+.container.darkMode{
+    color: white;
+}
+.container.lightkMode{
+    color: black;
+}

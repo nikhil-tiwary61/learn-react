@@ -1,10 +1,16 @@
 .app{
-    background: #252525;
-    color: white;
     height: 100vh;
     width: 100vw;
 }
 .sectionTitle{
     height: 50px;
     font-size: 35px;
+}
+.darkMode{
+    background: #252525;
+    color: white;
+}
+.lightMode{
+    background: #ccc;
+    color: #252525;
 }
