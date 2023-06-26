@@ -1,4 +1,4 @@
-import { useReducer, useState, useContext } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
@@ -29,26 +29,34 @@ function App() {
   function editVideo(id) {
     setEditableVideo(videos.find((video) => video.id === id));
   }
-
-  const theme = useContext(ThemeContext);
+  const [mode, setMode] = useState("darkMode");
 
   return (
-    <div
-      className={`app ${theme}`}
-      onClick={() => {
-        path.push("app");
-        console.log(path.reverse().join(">"));
-      }}
-    >
-      <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
-      <VideoList
-        videos={videos}
-        dispatch={dispatch}
-        editVideo={editVideo}
-        path={path}
-      />
-      {/* <Clock /> */}
-    </div>
+    <ThemeContext.Provider value={mode}>
+      <div
+        className={`app ${mode}`}
+        onClick={() => {
+          path.push("app");
+          console.log(path.reverse().join(">"));
+        }}
+      >
+        <button
+          onClick={() => {
+            setMode(mode === "darkMode" ? "lightMode" : "darkMode");
+          }}
+        >
+          Mode
+        </button>
+        <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
+        <VideoList
+          videos={videos}
+          dispatch={dispatch}
+          editVideo={editVideo}
+          path={path}
+        />
+        {/* <Clock /> */}
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
