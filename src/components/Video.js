@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./Video.css";
 import ThemeContext from "../context/ThemeContext";
+import VideosDispatchContext from "../context/VideoDispatchContext";
 
 function Video({
   id,
@@ -10,14 +11,13 @@ function Video({
   time = "few seconds ago",
   verified = false,
   children,
-  dispatch,
   editVideo,
-  path,
 }) {
   const theme = useContext(ThemeContext);
+  const dispatch = useContext(VideosDispatchContext);
   return (
     <>
-      <div className={`container ${theme}`} onClick={() => path.push("video")}>
+      <div className={`container ${theme}`}>
         <button
           className="close-btn"
           onClick={() => dispatch({ type: "DELETE", payload: id })}
@@ -31,7 +31,6 @@ function Video({
           <img
             src={`https://picsum.photos/id/${id}/160/90`}
             alt="LoremFlickr"
-            onClick={() => path.push("image")}
           />
         </div>
         <div className="title">{title}</div>

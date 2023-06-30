@@ -4,9 +4,10 @@ import videoDB from "./data/data";
 import AddVideo from "./components/AddVideo";
 import VideoList from "./components/VideoList";
 import ThemeContext from "./context/ThemeContext";
+import VideosContext from "./context/VideosContext";
+import VideoDispatchContext from "./context/VideoDispatchContext";
 
 function App() {
-  const path = [];
   const [editableVideo, setEditableVideo] = useState(null);
   function videoReducer(videos, action) {
     switch (action.type) {
@@ -33,29 +34,21 @@ function App() {
 
   return (
     <ThemeContext.Provider value={mode}>
-      <div
-        className={`app ${mode}`}
-        onClick={() => {
-          path.push("app");
-          console.log(path.reverse().join(">"));
-        }}
-      >
-        <button
-          onClick={() => {
-            setMode(mode === "darkMode" ? "lightMode" : "darkMode");
-          }}
-        >
-          Mode
-        </button>
-        <AddVideo dispatch={dispatch} editableVideo={editableVideo} />
-        <VideoList
-          videos={videos}
-          dispatch={dispatch}
-          editVideo={editVideo}
-          path={path}
-        />
-        {/* <Clock /> */}
-      </div>
+      <VideosContext.Provider value={videos}>
+        <VideoDispatchContext.Provider value={dispatch}>
+          <div className={`app ${mode}`}>
+            <button
+              onClick={() => {
+                setMode(mode === "darkMode" ? "lightMode" : "darkMode");
+              }}
+            >
+              Mode
+            </button>
+            <AddVideo editableVideo={editableVideo} />
+            <VideoList editVideo={editVideo} />
+          </div>
+        </VideoDispatchContext.Provider>
+      </VideosContext.Provider>
     </ThemeContext.Provider>
   );
 }
