@@ -1,9 +1,9 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import "./AddVideo.css";
-import VideosDispatchContext from "../context/VideoDispatchContext";
+import useVideoDispatch from "../hooks/VideoDispatch";
 
 export default function AddVideo({ editableVideo }) {
-  const dispatch = useContext(VideosDispatchContext);
+  const dispatch = useVideoDispatch();
   const emptyState = {
     channelName: "CatsFoundation",
     time: "4 months ago",
