@@ -3,7 +3,7 @@ import Video from "./Video";
 import useVideos from "../hooks/Videos";
 
 export default function VideoList({ editVideo }) {
-  const videos = useVideos;
+  const videos = useVideos();
   return (
     <>
       {videos.map((video) => (
