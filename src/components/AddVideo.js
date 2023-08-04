@@ -31,12 +31,12 @@ export default function AddVideo({ editableVideo }) {
       setVideo(editableVideo);
     }
     inputRef.current.focus();
-    inputRef.current.placeholder = "";
-    "Type here".split("").forEach((char, i) => {
-      setTimeout(() => {
-        inputRef.current.placeholder = inputRef.current.placeholder + char;
-      }, 200 * i);
-    });
+    // inputRef.current.placeholder = "";
+    // "Type here".split("").forEach((char, i) => {
+    //   setTimeout(() => {
+    //     inputRef.current.placeholder = inputRef.current.placeholder + char;
+    //   }, 200 * i);
+    // });
   }, [editableVideo]);
 
   return (
