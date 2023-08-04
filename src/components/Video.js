@@ -18,7 +18,14 @@ function Video({
 
   //works on every render
   useEffect(() => {
-    console.log("video playing", id);
+    const idx = setInterval(() => {
+      console.log("video playing", id);
+    }, 3000);
+
+    //clean up function
+    return () => {
+      clearInterval(idx);
+    };
   }, [id]);
 
   return (
